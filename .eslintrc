@@ -41,7 +41,7 @@
     "no-new-object": [2],
     "object-curly-spacing": [2,"never",{}],
     "semi": [2,"always"],
-    "space-before-function-paren": [2,"never"],
+    "space-before-function-paren": [2,"always"],
     "max-len": [0,80,4,{"ignoreComments":true,"ignoreUrls":true}],
     "func-names": [0],
     "comma-dangle": [2,"never"],

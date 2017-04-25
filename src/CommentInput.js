@@ -10,6 +10,7 @@ class CommentInput extends Component {
     // 绑定函数
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleUsernameChange (event) {
@@ -21,6 +22,16 @@ class CommentInput extends Component {
   handleContentChange (event) {
     this.setState({
       content: event.currentTarget.value
+    });
+  }
+
+  handleSubmit () {
+    if (this.props.onSubmit) {
+      const {username, content} = this.state;
+      this.props.onSubmit({username, content});
+    }
+    this.setState({
+      content: ''
     });
   }
 
@@ -47,7 +58,7 @@ class CommentInput extends Component {
           </div>
         </div>
         <div className="comment-field-button">
-          <button>发布</button>
+          <button onClick={this.handleSubmit}>发布</button>
         </div>
       </div>
     );

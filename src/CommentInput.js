@@ -4,6 +4,7 @@ class CommentInput extends Component {
   constructor () {
     super();
     this.state = {
+      id: '',
       username: '',
       content: ''
     };
@@ -28,7 +29,8 @@ class CommentInput extends Component {
   handleSubmit () {
     if (this.props.onSubmit) {
       const {username, content} = this.state;
-      this.props.onSubmit({username, content});
+      const id = (new Date()).getTime();
+      this.props.onSubmit({id, username, content});
     }
     this.setState({
       content: ''
